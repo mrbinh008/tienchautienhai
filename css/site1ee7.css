@@ -1,0 +1,783 @@
+/* Existing styles above... (append these) */
+
+/* Basic site styles + sidebar styling */
+
+body {
+    padding-bottom: 40px;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar container on larger screens */
+.sidebar-container {
+    min-height: calc(100vh - 56px); /* navbar height approx 56px */
+    border-right: 1px solid rgba(0,0,0,0.05);
+    padding-top: 1rem;
+}
+
+/* Sidebar nav links */
+.sidebar-nav .nav-link {
+    color: #343a40;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin: 4px 8px;
+    display: block;
+}
+
+    .sidebar-nav .nav-link:hover {
+        background-color: #e9ecef;
+        color: #0d6efd;
+        text-decoration: none;
+    }
+
+    /* Active link style: you can add logic to set active class in views */
+    .sidebar-nav .nav-link.active {
+        background-color: #0d6efd;
+        color: #fff !important;
+    }
+
+    /* Smaller on very small screens */
+    @media (max-width: 576px) {
+        .sidebar-nav .nav-link {
+            padding: 8px 12px;
+            font-size: 0.875rem;
+        }
+    }
+
+/* Ensure offcanvas sidebar uses same look */
+.offcanvas-body .sidebar-nav .nav-link {
+    margin: 2px 0;
+}
+
+/* Make main content area comfortable */
+main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Small tweaks for cards in gallery to fit nicely */
+.card img {
+    max-width: 100%;
+}
+
+/* Responsive: collapse sidebar spacing on xs */
+@media (max-width: 767.98px) {
+    .sidebar-container {
+        display: none;
+    }
+}
+
+/* Hero banner */
+.home-hero {
+    background-size: cover;
+    background-position: center;
+    min-height: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+    .home-hero .hero-overlay {
+        background: rgba(0,0,0,0.45);
+        padding: 40px 0;
+    }
+
+    /* Responsive: refine hero text alignment and spacing on smaller screens */
+    @media (max-width: 767.98px) {
+        .home-hero {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .home-hero .hero-overlay {
+            padding: 20px 0;
+        }
+    }
+
+/* Project cards */
+.project-card {
+    overflow: hidden;
+    border: none;
+}
+
+.project-thumb {
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .home-hero {
+        min-height: 220px;
+        padding: 20px 0;
+    }
+
+    .project-thumb {
+        height: 140px;
+    }
+}
+/* Authentication page center layout */
+.auth-page {
+    background: linear-gradient(180deg, #f6f9fc 0%, #ffffff 100%);
+}
+
+/* Card containing the login form */
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+}
+
+    /* Card body padding */
+    .auth-card .card-body {
+        padding: 1.5rem;
+    }
+
+    /* Slightly larger inputs for auth */
+    .auth-card .form-control {
+        height: calc(1.5em + 1rem);
+        padding: .5rem .75rem;
+    }
+
+    /* Make validation messages unobtrusive */
+    .auth-card .text-danger.small {
+        display: block;
+        margin-top: .25rem;
+    }
+
+    /* Responsive adjustments for card on small screens */
+    @media (max-width: 420px) {
+        .auth-card {
+            margin: 1rem;
+            box-shadow: none;
+        }
+    }
+/* Header (navbar) customizations */
+.custom-header {
+    /* gray background; tweak hex if you prefer lighter/darker gray */
+    background-color: #6c757d !important; /* bootstrap secondary gray */
+}
+
+    /* Keep navbar text light for contrast */
+    .custom-header .navbar-text,
+    .custom-header .navbar-brand,
+    .custom-header .btn,
+    .custom-header .btn-outline-light {
+        color: #ffffff !important;
+    }
+
+    /* Increase navbar brand (logo/title) font size */
+    .custom-header .navbar-brand {
+        font-size: 1.5rem; /* tăng kích thước logo/header */
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
+
+    /* Small screens - slightly reduce brand size */
+    @media (max-width: 576px) {
+        .custom-header .navbar-brand {
+            font-size: 1.25rem;
+        }
+    }
+
+/* Increase page header (h1) size for better visibility */
+main h1,
+h1.page-title {
+    font-size: 2rem; /* điều chỉnh theo ý bạn */
+    font-weight: 600;
+}
+
+/* If you use .container h1 in some views, ensure it's also larger */
+.container h1 {
+    font-size: 2rem;
+}
+
+/* --- End custom header styles --- */
+
+/* ---- Homepage styles inspired by reference site ---- */
+
+/* Fonts: elegant heading + modern body */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;600;700&amp;display=swap');
+
+:root {
+    --heading-font: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --body-font: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --muted: #6c757d;
+    --accent: #0d6efd;
+    --card-radius: 12px;
+}
+
+/* Apply fonts globally */
+body {
+    font-family: var(--body-font);
+    color: #222;
+    padding-bottom: 40px;
+    background-color: #f8f9fa;
+}
+
+/* All headings use heading font */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.page-title,
+.card-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* Specific heading sizes */
+h1, .h1 {
+    font-size: 2rem;
+}
+
+h2, .h2 {
+    font-size: 1.75rem;
+}
+
+h3, .h3 {
+    font-size: 1.5rem;
+}
+
+h4, .h4 {
+    font-size: 1.25rem;
+}
+
+h5, .h5 {
+    font-size: 1.1rem;
+}
+
+h6, .h6 {
+    font-size: 1rem;
+}
+
+/* Hero title specific */
+.hero-title {
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
+    line-height: 1.2;
+}
+
+/* Section titles */
+.section-title {
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+/* Lead text - slightly different */
+.lead {
+    font-family: var(--body-font);
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.hero-lead {
+    font-family: var(--body-font);
+    color: rgba(255,255,255,0.92);
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+/* Buttons use body font */
+.btn {
+    font-family: var(--body-font);
+    font-weight: 600;
+}
+
+/* Forms and inputs use body font */
+input, select, textarea, label {
+    font-family: var(--body-font);
+}
+
+/* Tables */
+table {
+    font-family: var(--body-font);
+}
+
+table th {
+    font-weight: 600;
+}
+
+/* Navbar */
+.navbar {
+    font-family: var(--body-font);
+}
+
+.navbar-brand {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* Sidebar navigation */
+.sidebar-nav .nav-link {
+    font-family: var(--body-font);
+    font-weight: 500;
+}
+
+/* Cards */
+.card-body {
+    font-family: var(--body-font);
+}
+
+/* Badges and small text keep body font */
+.badge, small, .small {
+    font-family: var(--body-font);
+}
+
+/* Alerts */
+.alert {
+    font-family: var(--body-font);
+}
+
+/* Existing styles below... */
+
+/* Sidebar container on larger screens */
+.sidebar-container {
+    min-height: calc(100vh - 56px);
+    border-right: 1px solid rgba(0,0,0,0.05);
+    padding-top: 1rem;
+}
+
+/* Sidebar nav links */
+.sidebar-nav .nav-link {
+    color: #343a40;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin: 4px 8px;
+    display: block;
+}
+
+.sidebar-nav .nav-link:hover {
+    background-color: #e9ecef;
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.sidebar-nav .nav-link.active {
+    background-color: #0d6efd;
+    color: #fff !important;
+}
+
+/* Ensure offcanvas sidebar uses same look */
+.offcanvas-body .sidebar-nav .nav-link {
+    margin: 2px 0;
+}
+
+/* Make main content area comfortable */
+main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Small tweaks for cards in gallery to fit nicely */
+.card img {
+    max-width: 100%;
+}
+
+/* Responsive: collapse sidebar spacing on xs */
+@media (max-width: 767.98px) {
+    .sidebar-container {
+        display: none;
+    }
+}
+
+/* Hero banner */
+.home-hero {
+    background-size: cover;
+    background-position: center;
+    min-height: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.home-hero .hero-overlay {
+    background: rgba(0,0,0,0.45);
+    padding: 40px 0;
+}
+
+/* Project cards */
+.project-card {
+    overflow: hidden;
+    border: none;
+}
+
+.project-thumb {
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .home-hero {
+        min-height: 220px;
+        padding: 20px 0;
+    }
+
+    .project-thumb {
+        height: 140px;
+    }
+}
+
+/* Authentication page center layout */
+.auth-page {
+    background: linear-gradient(180deg, #f6f9fc 0%, #ffffff 100%);
+}
+
+/* Card containing the login form */
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.auth-card .card-body {
+    padding: 1.5rem;
+}
+
+.auth-card .form-control {
+    height: calc(1.5em + 1rem);
+    padding: .5rem .75rem;
+}
+
+.auth-card .text-danger.small {
+    display: block;
+    margin-top: .25rem;
+}
+
+/* On very small screens, reduce vertical height */
+@media (max-width: 420px) {
+    .auth-card {
+        margin: 1rem;
+        box-shadow: none;
+    }
+}
+
+/* Header (navbar) customizations */
+.custom-header {
+    background-color: #6c757d !important;
+}
+
+.custom-header .navbar-text,
+.custom-header .navbar-brand,
+.custom-header .btn,
+.custom-header .btn-outline-light {
+    color: #ffffff !important;
+}
+
+/* Small screens - slightly reduce brand size */
+@media (max-width: 576px) {
+    .custom-header .navbar-brand {
+        font-size: 1.25rem;
+    }
+}
+
+/* Hero */
+.hero {
+    background-image: linear-gradient(rgba(8,15,30,0.55), rgba(8,15,30,0.55)), url('../images/hero-main.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 5rem 0;
+}
+
+.hero-overlay {
+    display: none;
+}
+
+/* What we do */
+.what .section-title,
+.featured .section-title {
+    margin-bottom: .5rem;
+}
+
+.feature-list li {
+    margin-bottom: .7rem;
+}
+
+/* Featured projects */
+.featured {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.project-card .card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.project-card .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(18,38,63,0.12);
+}
+
+.project-card .card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+    color: #fff;
+    opacity: 1;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.overlay-content h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.overlay-content small {
+    color: rgba(255,255,255,0.85);
+}
+
+/* CTA contact */
+.contact-cta .card {
+    border-radius: 14px;
+    background: linear-gradient(90deg,#ffffff,#fbfbff);
+}
+
+.contact-cta h4 {
+    margin-bottom: .25rem;
+}
+
+/* Hover effect for project cards */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+}
+
+/* Stats section */
+.stat-item h3 {
+    line-height: 1;
+}
+
+/* Feature list icons */
+.feature-list .bi-check-circle-fill {
+    font-size: 1.1rem;
+}
+
+/* Gallery images */
+.gallery-item .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-item .card:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item .card-body {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .hero {
+        padding: 3rem 0;
+        min-height: 45vh;
+    }
+
+    .project-card .card-overlay {
+        padding: .6rem;
+    }
+    
+    h1, .h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2, .h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Carousel modal controls - larger, bordered, high-contrast for visibility */
+.modal .carousel-control-prev,
+.modal .carousel-control-next {
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.92); /* light circle to contrast images */
+    border: 2px solid rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    z-index: 1100; /* ensure above image */
+    transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+
+/* Slightly move controls inward so they don't get clipped at edges */
+.modal .carousel-control-prev { left: 1rem; }
+.modal .carousel-control-next { right: 1rem; }
+
+/* Enlarge the SVG icons inside controls and make them dark (visible on light bg) */
+.modal .carousel-control-prev-icon,
+.modal .carousel-control-next-icon {
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+    /* default bootstrap icons are white; invert to produce dark icon on light background */
+    filter: invert(1) grayscale(1) contrast(120%);
+}
+
+/* Hover / focus states: emphasize with accent color */
+.modal .carousel-control-prev:hover,
+.modal .carousel-control-next:hover,
+.modal .carousel-control-prev:focus,
+.modal .carousel-control-next:focus {
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.24);
+    background-color: var(--accent, #0d6efd);
+}
+
+.modal .carousel-control-prev:hover .carousel-control-prev-icon,
+.modal .carousel-control-next:hover .carousel-control-next-icon,
+.modal .carousel-control-prev:focus .carousel-control-prev-icon,
+.modal .carousel-control-next:focus .carousel-control-next-icon {
+    /* make icon visible over accent background (reverse filter) */
+    filter: none;
+}
+
+/* Smaller on very small screens */
+@media (max-width: 576px) {
+    .modal .carousel-control-prev,
+    .modal .carousel-control-next {
+        width: 48px;
+        height: 48px;
+        left: 0.6rem;
+        right: 0.6rem;
+    }
+    .modal .carousel-control-prev-icon,
+    .modal .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+    }
+}
+
+/* Footer */
+.custom-footer {
+    background-color: #6c757d;
+}
+
+.custom-footer a {
+    color: #cfe2ff;
+    text-decoration: none;
+}
+
+.custom-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Add at end of file (or near other navbar rules) */
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    display: inline-block;
+    object-fit: contain;
+}
+
+@media (max-width: 576px) {
+    .navbar-logo {
+        height: 34px;
+    }
+}
+
+/* Add at end of file (or near other navbar/footer rules) */
+.footer-logo {
+    height: 200px;
+    width: auto;
+    display: inline-block;
+    object-fit: contain;
+}
+
+@media (max-width: 576px) {
+    .footer-logo {
+        height: 48px;
+    }
+}
+
+/* PDF.js viewer */
+.pdf-wrapper {
+    height: 80vh;
+    max-height: 90vh;
+}
+
+.pdf-js-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    background: #fff;
+}
+
+.pdf-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    background: #f1f3f5;
+    border-bottom: 1px solid #dee2e6;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.pdf-viewer-scroll {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    background: #e9ecef;
+    padding: 0.5rem 0;
+}
+
+.pdf-page-canvas {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 100%;
+    height: auto !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 767.98px) {
+    .pdf-toolbar {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
